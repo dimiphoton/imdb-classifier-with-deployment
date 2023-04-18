@@ -1,0 +1,30 @@
+name: imdb
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pip
+  - ipykernel
+  - jupyter
+  - notebook
+  - pandas
+  - numpy
+  - scikit-learn
+  - tensorflow
+  - transformers
+  - pytorch
+  - keras
+  - spacy
+  - pyspark
+  - flask
+  - streamlit
+  - kubernetes
+  - psycopg2
+  - sqlalchemy
+  - apache-airflow
+  - pip:
+    - findspark
+    - en-core-web-sm==3.0.0
+    - docker
+    - docker-compose
