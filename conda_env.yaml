@@ -22,7 +22,6 @@ dependencies:
   - kubernetes
   - psycopg2
   - sqlalchemy
-  - apache-airflow
   - pip:
     - findspark
     - en-core-web-sm==3.0.0
