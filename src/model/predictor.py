@@ -4,7 +4,7 @@ from transformers import BertForSequenceClassification, BertTokenizer
 from sklearn.preprocessing import MultiLabelBinarizer
 
 # Load the movie data and pre-trained BERT tokenizer
-df = pd.read_csv('movie_data.csv', index_col='original_title')
+df = pd.read_csv('../../processed/processed_data.csv', index_col='original_title')
 mlb = MultiLabelBinarizer()
 df['genre_binary'] = mlb.fit_transform(df['genre_list'])
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')

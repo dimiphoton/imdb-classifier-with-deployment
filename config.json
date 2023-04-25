@@ -1,0 +1,10 @@
+{
+    "data_interim_path": "/data/1.interim",
+    "data_final_path": "/data/2.processed",
+    "model_dir": "./saved_model",
+    "tokenizer": "distilbert-base-uncased",
+    "num_labels": 10,
+    "batch_size": 8,
+    "epochs": 5,
+    "learning_rate": 3e-5
+}

@@ -1,11 +1,3 @@
-cast
-crew
-id
-id
-keywords
-movieId
-imdbId
-tmdbId
 movieId
 imdbId
 tmdbId
@@ -41,3 +33,11 @@ userId
 movieId
 rating
 timestamp
+id
+keywords
+cast
+crew
+id
+movieId
+imdbId
+tmdbId

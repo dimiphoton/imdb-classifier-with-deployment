@@ -1,26 +1,23 @@
-"""
-This script includes the implementation of an additional feature using spaCy,
-such as keyword extraction, sentiment analysis, or text summarization.
-"""
-
 import spacy
-from typing import List
 
+# Load the spaCy model for English language text
 nlp = spacy.load('en_core_web_sm')
 
-def extract_keywords(doc: spacy.tokens.Doc, num_keywords: int) -> List[str]:
+def extract_keywords(doc, num_keywords=5):
     """
-    Extracts the top `num_keywords` keywords from a spaCy `Doc` object.
-    
-    Args:
-        doc (spacy.tokens.Doc): The spaCy `Doc` object to extract keywords from.
-        num_keywords (int): The number of keywords to extract.
-    
-    Returns:
-        List[str]: A list of the top `num_keywords` keywords.
+    Extract the top n (default 5) keywords from a spaCy Doc object.
     """
-    noun_chunks = list(doc.noun_chunks)
-    nouns = [chunk.root.text for chunk in noun_chunks if chunk.root.pos_ == 'NOUN']
-    adjectives = [token.text for token in doc if token.pos_ == 'ADJ']
-    keywords = nouns + adjectives
-    return list(set(keywords))[:num_keywords]
+    # Filter out stop words and punctuation
+    filtered_words = [token for token in doc if not token.is_stop and not token.is_punct]
+
+    # Get the frequency of each word
+    word_freq = {}
+    for word in filtered_words:
+        if word.text not in word_freq:
+            word_freq[word.text] = 1
+        else:
+            word_freq[word.text] += 1
+
+    # Sort the words by frequency and return the top n
+    sorted_words = sorted(word_freq.items(), key=lambda x: x[1], reverse=True)
+    return [word[0] for word in sorted_words[:num_keywords]]
